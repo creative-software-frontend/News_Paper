@@ -247,18 +247,11 @@ const NavItems = () => {
             className="text-xl cursor-pointer lg:hidden"
             onClick={() => setMenuOpen(true)}
           />
-          <span>বৃহস্পতিবার, ০৭ আগস্ট ২০২৫</span>
+          <span> আজ বৃহস্পতিবার, ০৭ আগস্ট ২০২৫</span> |
+          <span>২৩ই শ্রাবণ ১৪৩২ বঙ্গাব্দ</span>|
+          <span>১১ই সফর, ১৪৪৭ হিজরি</span>
         </div>
-        <div className="flex items-center gap-4">
-          <button className="border border-gray-100 cursor-pointer  px-2 py-1  text-sm">
-            আজকের পত্রিকা
-          </button>
-          <button className="border border-gray-100 cursor-pointer px-2 py-1  text-sm">ই-পেপার</button>
-         
-        </div>
-        
-      </div>
-       <div className="hidden lg:flex justify-end gap-5 ml-2 text-gray-600 pt-2">
+         <div className="hidden lg:flex justify-end gap-5 ml-2 text-gray-600 pt-2">
             <div className="border p-1 border-gray-100 cursor-pointer">
               <FaFacebookF  />
             </div>
@@ -272,11 +265,15 @@ const NavItems = () => {
              <FaYoutube />
            </div>
           </div>
+        
+      </div>
+      
      </div>
 
       {/* Logo */}
       <div className="text-center py-2">
-        <h1 className="text-4xl font-bold font-serif tracking-wider">পে খবর</h1>
+        <h1 className="text-4xl font-bold font-serif tracking-wider">The Daily News</h1>
+        
       </div>
 
       {/* Desktop Navigation */}
@@ -328,7 +325,7 @@ const NavItems = () => {
             {/* Close Icon */}
             <div className="flex justify-between items-center mb-4">
               <h1 className="text-3xl font-bold font-serif tracking-wider">
-                পে খবর
+               Daily News
               </h1>
               <IoClose
                 className="text-3xl cursor-pointer"
@@ -359,7 +356,7 @@ const NavItems = () => {
 
             {/* Footer */}
             <div className="mt-6 text-center text-sm text-gray-500">
-              <p>© 2025 www.jugantor.com</p>
+              <p>© 2025 Daily News</p>
             </div>
           </motion.div>
         )}
