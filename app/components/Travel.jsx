@@ -25,20 +25,28 @@ const businessArticles = [
     date: "April 22, 2022",
     img: "/img/BusinessSection (3).jpg",
   },
+  {
+    title: "Laws Make College Transfer Easier for Community College Students",
+    excerpt:
+      "Lorem ipsum was conceived as filler text, formatted in a certain way...",
+    author: "codemin",
+    date: "April 22, 2022",
+    img: "/img/travel.jpg",
+  },
 ];
 
-const BusinessSection = () => {
+const Travel = () => {
   return (
     <section className="my-10">
       <div className="flex items-center mb-4">
-        <h2 className="text-lg font-bold mr-4 uppercase">Business</h2>
+        <h2 className="text-lg font-bold mr-4 uppercase">Travel</h2>
         <div className="flex flex-col  flex-grow gap-[2px] mt-1">
           <div className="border-t border-dotted border-black w-full h-0"></div>
           <div className="border-t border-dotted border-black w-full h-0"></div>
           <div className="border-t border-dotted border-black w-full h-0"></div>
         </div>
       </div>
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
         {businessArticles.map((article, idx) => (
           <div key={idx}>
             <Image
@@ -64,4 +72,4 @@ const BusinessSection = () => {
   );
 };
 
-export default BusinessSection;
+export default Travel;

@@ -38,9 +38,14 @@ const financePosts = [
 export default function FinanceSection() {
   return (
     <section className="my-10">
-      <h2 className="text-xl font-bold border-b border-dotted  pb-1 mb-6">
-        FINANCE
-      </h2>
+      <div className="flex items-center mb-4">
+        <h2 className="text-lg font-bold mr-4">FINANCE</h2>
+        <div className="flex flex-col  flex-grow gap-[2px] mt-1">
+          <div className="border-t border-dotted border-black w-full h-0"></div>
+          <div className="border-t border-dotted border-black w-full h-0"></div>
+          <div className="border-t border-dotted border-black w-full h-0"></div>
+        </div>
+      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {financePosts.map((post, index) => (
           <div key={index} className="group ">

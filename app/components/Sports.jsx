@@ -83,9 +83,14 @@ const Sports = () => {
   return (
     <section className="grid grid-cols-1 lg:grid-cols-3 gap-6 my-10">
       <div className="lg:col-span-2">
-        <h2 className="text-lg font-bold border-b border-dotted  mb-6">
-          SPORTS
-        </h2>
+        <div className="flex items-center mb-4">
+          <h2 className="text-lg font-bold mr-4">SPORTS</h2>
+          <div className="flex flex-col  flex-grow gap-[2px] mt-1">
+            <div className="border-t border-dotted border-black w-full h-0"></div>
+            <div className="border-t border-dotted border-black w-full h-0"></div>
+            <div className="border-t border-dotted border-black w-full h-0"></div>
+          </div>
+        </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {sportsNews.map((item, idx) => (
             <div key={idx}>
@@ -112,9 +117,14 @@ const Sports = () => {
 
       <div className="space-y-8">
         <div>
-          <h2 className="text-lg font-bold border-b border-dotted  mb-3">
-            LIFESTYLE
-          </h2>
+          <div className="flex items-center mb-4">
+            <h2 className="text-lg font-bold mr-4"> LIFESTYLE</h2>
+            <div className="flex flex-col  flex-grow gap-[2px] mt-1">
+              <div className="border-t border-dotted border-black w-full h-0"></div>
+              <div className="border-t border-dotted border-black w-full h-0"></div>
+              <div className="border-t border-dotted border-black w-full h-0"></div>
+            </div>
+          </div>
           <ul className="space-y-3">
             {lifestyleNews.map((item, idx) => (
               <li key={idx}>
@@ -128,9 +138,14 @@ const Sports = () => {
         </div>
 
         <div>
-          <h2 className="text-lg font-bold border-b border-dotted mb-3">
-            ENTERTAINMENT
-          </h2>
+          <div className="flex items-center mb-4">
+            <h2 className="text-lg font-bold mr-4">ENTERTAINMENT</h2>
+            <div className="flex flex-col  flex-grow gap-[2px] mt-1">
+              <div className="border-t border-dotted border-black w-full h-0"></div>
+              <div className="border-t border-dotted border-black w-full h-0"></div>
+              <div className="border-t border-dotted border-black w-full h-0"></div>
+            </div>
+          </div>
           <ul className="space-y-3">
             {entertainmentNews.map((item, idx) => (
               <li key={idx}>

@@ -1,3 +1,4 @@
+import NewsTabs from "./NeswTab";
 import NewsCard from "./NewsCard";
 import Slider from "./Slider";
 
@@ -45,20 +46,30 @@ const NewsSection = () => {
   ];
 
   return (
-    <div className=" py-5 grid grid-cols-1 md:grid-cols-4 gap-6">
+    <div className=" pb-5 grid grid-cols-1 md:grid-cols-4 gap-6">
       {/* HOT STORIES */}
       <div className=" md:col-span-2 ">
-        <h2 className="text-lg font-bold border-b border-dotted  mb-4">
-          HOT STORIES
-        </h2>
+        <div className="flex items-center mb-4">
+          <h2 className="text-lg font-bold mr-4"> HOT STORIES</h2>
+          <div className="flex flex-col  flex-grow gap-[2px] mt-1">
+            <div className="border-t border-dotted border-black w-full h-0"></div>
+            <div className="border-t border-dotted border-black w-full h-0"></div>
+            <div className="border-t border-dotted border-black w-full h-0"></div>
+          </div>
+        </div>
         <Slider />
       </div>
 
       {/* POLITICS */}
       <div className=" md:col-span-1">
-        <h2 className="text-lg font-bold border-b border-dotted  mb-4">
-          POLITICS
-        </h2>
+        <div className="flex items-center mb-4">
+          <h2 className="text-lg font-bold mr-4">POLITICS</h2>
+          <div className="flex flex-col  flex-grow gap-[2px] mt-1">
+            <div className="border-t border-dotted border-black w-full h-0"></div>
+            <div className="border-t border-dotted border-black w-full h-0"></div>
+            <div className="border-t border-dotted border-black w-full h-0"></div>
+          </div>
+        </div>
         {politicsNews.map((item, index) => (
           <NewsCard key={index} {...item} />
         ))}
@@ -66,12 +77,16 @@ const NewsSection = () => {
 
       {/* HOLLYWOOD */}
       <div className=" md:col-span-1 ">
-        <h2 className="text-lg font-bold border-b border-dotted  mb-4">
-          HOLLYWOOD
-        </h2>
-        {hollywoodNews.map((item, index) => (
-          <NewsCard key={index} {...item} />
-        ))}
+        <div className="flex items-center mb-4">
+          <h2 className="text-lg font-bold mr-4">HOLLYWOOD</h2>
+          <div className="flex flex-col  flex-grow gap-[2px] mt-1">
+            <div className="border-t border-dotted border-black w-full h-0"></div>
+            <div className="border-t border-dotted border-black w-full h-0"></div>
+            <div className="border-t border-dotted border-black w-full h-0"></div>
+          </div>
+        </div>
+
+        <NewsTabs />
       </div>
     </div>
   );
