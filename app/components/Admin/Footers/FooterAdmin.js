@@ -12,16 +12,23 @@ export default function FooterAdmin() {
                 rel="noopener noreferrer"
                 className="text-indigo-600 hover:text-indigo-800 transition-colors"
               >
-                Creative Tim
-              </a>
-              . Distributed by{' '}
-              <a
-                href="https://themewagon.com/"
+               
+              </a> <a
+                href="https://creativesoftware.com.bd/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-indigo-600 hover:text-indigo-800 transition-colors"
               >
-                ThemeWagon
+                Creative Software
+              </a>
+              . Develop by{' '}
+              <a
+                href="https://creativesoftware.com.bd/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-indigo-600 hover:text-indigo-800 transition-colors"
+              >
+                Creative Software
               </a>
               .
             </p>
@@ -32,7 +39,7 @@ export default function FooterAdmin() {
               href="#!"
               className="text-sm text-gray-600 hover:text-indigo-600 transition-colors px-2 py-1"
             >
-              Creative Tim
+              Ads Policy
             </a>
             <a
               href="#!"
@@ -44,14 +51,9 @@ export default function FooterAdmin() {
               href="#!"
               className="text-sm text-gray-600 hover:text-indigo-600 transition-colors px-2 py-1"
             >
-              Blog
+              Privacy Policy
             </a>
-            <a
-              href="#!"
-              className="text-sm text-gray-600 hover:text-indigo-600 transition-colors px-2 py-1"
-            >
-              MIT License
-            </a>
+           
           </nav>
         </div>
       </div>

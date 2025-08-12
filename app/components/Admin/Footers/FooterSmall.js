@@ -54,17 +54,10 @@ export default function FooterSmall(props) {
                     aria-disabled
                     href='#!'
                     className='text-white hover:text-blueGray-300 text-sm font-semibold block py-1 px-3'>
-                    Blog
+                    Privacy Policy
                   </a>
                 </li>
-                <li>
-                  <a
-                    aria-disabled
-                    href='#!'
-                    className='text-white hover:text-blueGray-300 text-sm font-semibold block py-1 px-3'>
-                    MIT License
-                  </a>
-                </li>
+                
               </ul>
             </div>
           </div>
