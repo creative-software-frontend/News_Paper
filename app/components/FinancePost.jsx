@@ -1,37 +1,37 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 const financePosts = [
   {
-    title: "Oil Prices Rise Amid Anticipated Cold Weather",
-    date: "September 12, 2022",
-    author: "codemin",
-    img: "/img/img1 (1).jpg",
+    title: 'Oil Prices Rise Amid Anticipated Cold Weather',
+    date: 'September 12, 2022',
+    author: 'codemin',
+    img: '/img/img1 (1).jpg',
     excerpt:
-      "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque...",
+      'Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque...',
   },
   {
-    title: "Netflix Is Poised to Produce a Significant Decline Ahead",
-    date: "April 22, 2022",
-    author: "codemin",
-    img: "/img/img1 (2).jpg",
+    title: 'Netflix Is Poised to Produce a Significant Decline Ahead',
+    date: 'April 22, 2022',
+    author: 'codemin',
+    img: '/img/img1 (2).jpg',
     excerpt:
-      "Lorem ipsum was conceived as filler text, formatted in a certain way to enable the presentation...",
+      'Lorem ipsum was conceived as filler text, formatted in a certain way to enable the presentation...',
   },
   {
-    title: "Cisco Shares Rise on Earnings and Revenue Beat",
-    date: "April 22, 2022",
-    author: "codemin",
-    img: "/img/img1 (3).jpg",
+    title: 'Cisco Shares Rise on Earnings and Revenue Beat',
+    date: 'April 22, 2022',
+    author: 'codemin',
+    img: '/img/img1 (3).jpg',
     excerpt:
-      "Lorem ipsum was conceived as filler text, formatted in a certain way to enable the presentation...",
+      'Lorem ipsum was conceived as filler text, formatted in a certain way to enable the presentation...',
   },
   {
-    title: "Silicon Valley Activism’s Impact on Technology Industry",
-    date: "April 21, 2022",
-    author: "codemin",
-    img: "/img/img1 (4).jpg",
+    title: 'Silicon Valley Activism’s Impact on Technology Industry',
+    date: 'April 21, 2022',
+    author: 'codemin',
+    img: '/img/img1 (4).jpg',
     excerpt:
-      "Lorem ipsum was conceived as filler text, formatted in a certain way to enable the presentation...",
+      'Lorem ipsum was conceived as filler text, formatted in a certain way to enable the presentation...',
   },
 ];
 

@@ -4,8 +4,8 @@ import {
   FaTwitter,
   FaInstagram,
   FaLinkedinIn,
-} from "react-icons/fa";
-import Image from "next/image";
+} from 'react-icons/fa';
+import Image from 'next/image';
 
 const Footer = () => {
   return (
@@ -74,7 +74,8 @@ const Footer = () => {
 
       <div className="bg-black text-white text-center text-sm py-4 border-t border-gray-700">
         <p>
-          © ২০২৫ Daily News কর্তৃক সর্বস্বত্ব সংরক্ষিত | ডেভেলপমেন্ট করেছে- ক্রিয়েটিভ সফটওয়্যার
+          © ২০২৫ Daily News কর্তৃক সর্বস্বত্ব সংরক্ষিত | ডেভেলপমেন্ট করেছে-
+          ক্রিয়েটিভ সফটওয়্যার
         </p>
       </div>
     </footer>
