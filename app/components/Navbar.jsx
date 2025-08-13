@@ -287,7 +287,7 @@ const NavItems = () => {
         ].map((item, idx) => (
           <div key={idx} className="relative group cursor-pointer">
             <div className="flex items-center">
-              <span className="hover:text-red-600 transition text-2xl">
+              <span className="hover:text-red-600 transition text-xl">
                 {item}
               </span>
               {(item === 'আরও' || item === 'সারাদেশ') && (
