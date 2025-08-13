@@ -1,24 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // FontAwesome imports
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
+  faUsers,
+  faNewspaper,
+  faFileAlt,
+  faHeading,
   faChartBar,
   faChartPie,
-  faUsers,
   faPercent,
   faArrowUp,
   faArrowDown,
 } from '@fortawesome/free-solid-svg-icons';
 import { faChartBar as farChartBar } from '@fortawesome/free-regular-svg-icons';
 
-// icon mapping function (statIconName থেকে icon object পাবার জন্য)
+// Icon mapping
 const iconMap = {
+  'fas fa-users': faUsers, // Users
+  'fas fa-newspaper': faNewspaper, // Total News
+  'fas fa-file-alt': faFileAlt, // My News
+  'fas fa-heading': faHeading, // Headline
   'fas fa-chart-bar': faChartBar,
   'far fa-chart-bar': farChartBar,
   'fas fa-chart-pie': faChartPie,
-  'fas fa-users': faUsers,
   'fas fa-percent': faPercent,
   'fas fa-arrow-up': faArrowUp,
   'fas fa-arrow-down': faArrowDown,
@@ -34,6 +40,8 @@ export default function CardStats({
   statIconName,
   statIconColor,
 }) {
+  const iconToShow = iconMap[statIconName] || faUsers; // fallback icon
+
   return (
     <div className="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
       <div className="flex-auto p-4">
@@ -53,12 +61,11 @@ export default function CardStats({
                 statIconColor
               }
             >
-              {/* FontAwesomeIcon ব্যবহার */}
-              <FontAwesomeIcon icon={iconMap[statIconName]} size="lg" />
+              <FontAwesomeIcon icon={iconToShow} size="lg" />
             </div>
           </div>
         </div>
-        <p className="text-sm text-blueGray-400 mt-4 flex ">
+        <p className="text-sm text-blueGray-400 mt-4 flex">
           <span className={`${statPercentColor} mr-2 flex`}>
             <FontAwesomeIcon
               icon={
@@ -86,7 +93,7 @@ CardStats.defaultProps = {
   statPercent: '3.48',
   statPercentColor: 'text-emerald-500',
   statDescripiron: 'Since last month',
-  statIconName: 'far fa-chart-bar',
+  statIconName: 'fas fa-users', // default
   statIconColor: 'bg-red-500',
 };
 

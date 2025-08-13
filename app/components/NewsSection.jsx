@@ -1,47 +1,47 @@
-import NewsTabs from "./NeswTab";
-import NewsCard from "./NewsCard";
-import Slider from "./Slider";
+import NewsTabs from './NeswTab';
+import NewsCard from './NewsCard';
+import Slider from './Slider';
 
 const NewsSection = () => {
   const politicsNews = [
     {
-      title: "Oil Prices Rise Amid Anticipated Cold Weather",
-      date: "September 12, 2022",
+      title: 'Oil Prices Rise Amid Anticipated Cold Weather',
+      date: 'September 12, 2022',
     },
     {
-      title: "Next Stop for Democrats",
-      date: "June 15, 2022",
+      title: 'Next Stop for Democrats',
+      date: 'June 15, 2022',
     },
     {
-      title: "Anti-War Protests Intensify in the World",
-      date: "April 22, 2022",
+      title: 'Anti-War Protests Intensify in the World',
+      date: 'April 22, 2022',
     },
     {
-      title: "How to Spend the Perfect Day on Croatia",
-      date: "April 21, 2022",
+      title: 'How to Spend the Perfect Day on Croatia',
+      date: 'April 21, 2022',
     },
   ];
 
   const hollywoodNews = [
     {
-      title: "Olivia Rodrigo lead American Music Award nominees",
-      date: "June 16, 2022",
+      title: 'Olivia Rodrigo lead American Music Award nominees',
+      date: 'June 16, 2022',
     },
     {
-      title: "The Most Romantic Small Towns in Europe",
-      date: "June 15, 2022",
+      title: 'The Most Romantic Small Towns in Europe',
+      date: 'June 15, 2022',
     },
     {
-      title: "Glastonbury Festival fashion history",
-      date: "May 18, 2022",
+      title: 'Glastonbury Festival fashion history',
+      date: 'May 18, 2022',
     },
     {
-      title: "Movies on TV this week: ‘Goldfinger’ on BBC",
-      date: "May 18, 2022",
+      title: 'Movies on TV this week: ‘Goldfinger’ on BBC',
+      date: 'May 18, 2022',
     },
     {
-      title: "BTS Discusses Anti-Asian Hate at White House",
-      date: "April 29, 2022",
+      title: 'BTS Discusses Anti-Asian Hate at White House',
+      date: 'April 29, 2022',
     },
   ];
 
@@ -76,16 +76,7 @@ const NewsSection = () => {
       </div>
 
       {/* HOLLYWOOD */}
-      <div className=" md:col-span-1 ">
-        <div className="flex items-center mb-4">
-          <h2 className="text-lg font-bold mr-4">HOLLYWOOD</h2>
-          <div className="flex flex-col  flex-grow gap-[2px] mt-1">
-            <div className="border-t border-dotted border-black w-full h-0"></div>
-            <div className="border-t border-dotted border-black w-full h-0"></div>
-            <div className="border-t border-dotted border-black w-full h-0"></div>
-          </div>
-        </div>
-
+      <div className=" md:col-span-1 mt-3">
         <NewsTabs />
       </div>
     </div>
