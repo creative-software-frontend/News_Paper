@@ -1,4 +1,4 @@
-'use client'; // Client Component, কারণ useState লাগবে
+'use client';
 
 import '../globals.css';
 import Sidebar from '../components/Admin/Sidebar/Sidebar';
@@ -10,6 +10,7 @@ import FooterAdmin from '../components/Admin/Footers/FooterAdmin';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { useState } from 'react';
+import { ToastContainer } from 'react-toastify';
 
 const uiSans = {
   variable: '--font-ui-sans',
@@ -31,11 +32,22 @@ export default function AdminLayout({ children }) {
 
             <div className="px-4 md:px-10 mx-auto w-full min-h-[calc(100vh-300px)]">
               {children}{' '}
-              {/* এখন যেকোনো page বা component TanStack Query ব্যবহার করতে পারবে */}
             </div>
 
             <FooterAdmin />
           </div>
+
+          {/* Toast container */}
+          <ToastContainer
+            position="top-right"
+            autoClose={3000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
 
           {/* React Query Devtools (development only) */}
           <ReactQueryDevtools initialIsOpen={false} />

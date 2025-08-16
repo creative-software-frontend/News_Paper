@@ -1,9 +1,9 @@
 import BusinessSection from '../components/BusinessSection';
 import FinanceSection from '../components/FinancePost';
 import Headline from '../components/Headline';
+import International from '../components/International';
 import NewsSection from '../components/NewsSection';
 import Sports from '../components/Sports';
-import Travel from '../components/Travel';
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
       <FinanceSection />
       <Sports />
       <BusinessSection />
-      <Travel />
+      <International />
     </div>
   );
 }

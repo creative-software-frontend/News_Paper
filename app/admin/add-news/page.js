@@ -21,6 +21,7 @@ export default function AddNewsPage() {
     'জাতীয়',
     'রাজনীতি',
     'অর্থনীতি',
+    'ব্যবসায়',
     'আন্তর্জাতিক',
     'সারাদেশ',
     'রাজধানী',
@@ -135,7 +136,7 @@ export default function AddNewsPage() {
       </Head>
 
       <div className="min-h-screen bg-gray-50 pt-5">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="bg-white shadow rounded-lg p-6 sm:p-8">
             <h1 className="text-2xl font-bold text-gray-800 mb-6">
               Add News Article
