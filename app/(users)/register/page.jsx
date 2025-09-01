@@ -1,13 +1,32 @@
 'use client';
 
+import axios from 'axios';
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
+import Swal from 'sweetalert2';
+
+const formatDate = () => {
+  const date = new Date();
+  const options = {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: true,
+  };
+  return date.toLocaleString('en-GB', options).replace(',', '');
+};
 
 const RegisterPage = () => {
+  const route = useRouter();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     password: '',
     confirmPassword: '',
+    role: 'user',
+    create_at: formatDate(),
   });
 
   const handleChange = e => {
@@ -15,19 +34,49 @@ const RegisterPage = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     if (formData.password !== formData.confirmPassword) {
       alert('Passwords do not match!');
       return;
     }
-    // এখানে তুমি API call করতে পারো
-    console.log('Registration data:', formData);
-    alert(`Registering ${formData.name}`);
+
+    try {
+      const data = new FormData(); // FormData object
+      data.append('name', formData.name);
+      data.append('email', formData.email);
+      data.append('password', formData.password);
+      data.append('confirmPassword', formData.confirmPassword);
+      data.append('role', formData.role);
+      if (formData.image) {
+        data.append('image', formData.image); // append the file
+      }
+
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_ROOT_URL}/register`,
+        data,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        }
+      );
+
+      if (response?.data?.created) {
+        Swal.fire({
+          title: 'Registration successful!',
+          icon: 'success',
+          draggable: true,
+        });
+        route.push('login');
+      }
+    } catch (error) {
+      console.error('Error:', error.response?.data || error.message);
+    }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
+    <div className="min-h-screen  flex items-center justify-center p-4">
       <div className="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md border border-gray-100">
         <div className="text-center mb-8">
           <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 mb-4">
@@ -55,6 +104,7 @@ const RegisterPage = () => {
             <label className="block text-sm font-medium text-gray-700">
               Full Name
             </label>
+
             <div className="relative">
               <input
                 type="text"
@@ -169,6 +219,23 @@ const RegisterPage = () => {
                   />
                 </svg>
               </div>
+            </div>
+          </div>
+          <div className="">
+            <label className="block text-sm font-medium text-gray-700">
+              Your Profile
+            </label>
+            <div className="">
+              <input
+                type="file"
+                name="image"
+                className="w-full px-4 py-3 pl-11 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                required
+                onChange={e =>
+                  setFormData(prev => ({ ...prev, image: e.target.files[0] }))
+                }
+                accept="image/*"
+              />
             </div>
           </div>
 

@@ -18,6 +18,32 @@ export default function EditPage(props) {
   const [previewImage, setPreviewImage] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  const categories = [
+    'প্রচ্ছদ',
+    'সর্বশেষ',
+    'জাতীয়',
+    'রাজনীতি',
+    'অর্থনীতি',
+    'ব্যবসায়',
+    'আন্তর্জাতিক',
+    'সারাদেশ',
+    'রাজধানী',
+    'শিক্ষা',
+    'খেলা',
+    'বিনোদন',
+    'চাকরি',
+    'ডাক্তারের পরামর্শ',
+    'ইসলাম ও জীবন',
+    'লাইফস্টাইল',
+    'বিজ্ঞান ও প্রযুক্তি',
+    'সাহিত্য',
+    'চিত্র বিচিত্র',
+    'সম্পাদকীয়',
+    'পরবাস',
+    'বিচ্ছু',
+    'ছবি',
+  ];
+
   // Fetch existing news data
   useEffect(() => {
     const fetchNews = async () => {
@@ -145,11 +171,11 @@ export default function EditPage(props) {
             className="block w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
           >
             <option value="">Select a category</option>
-            <option value="Politics">Politics</option>
-            <option value="Sports">Sports</option>
-            <option value="Technology">Technology</option>
-            <option value="Business">Business</option>
-            <option value="Entertainment">Entertainment</option>
+            {categories.map((cat, idx) => (
+              <option key={idx} value={cat}>
+                {cat}
+              </option>
+            ))}
           </select>
         </div>
 

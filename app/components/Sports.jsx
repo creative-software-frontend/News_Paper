@@ -40,7 +40,7 @@ const Sports = async () => {
     <section className="grid grid-cols-1 lg:grid-cols-3 gap-6 my-10">
       <div className="lg:col-span-2">
         <div className="flex items-center mb-4">
-          <h2 className="text-lg font-bold mr-4">SPORTS</h2>
+          <h2 className="text-lg font-bold mr-4">খেলা</h2>
           <div className="flex flex-col  flex-grow gap-[2px] mt-1">
             <div className="border-t border-dotted border-black w-full h-0"></div>
             <div className="border-t border-dotted border-black w-full h-0"></div>
@@ -51,7 +51,13 @@ const Sports = async () => {
           {sportsNews.slice(0, 6).map((item, idx) => (
             <div key={idx}>
               <Image
-                src={item.image}
+                src={
+                  item?.image?.startsWith('http')
+                    ? item.image
+                    : item?.image
+                    ? `${process.env.NEXT_PUBLIC_ROOT_URL}${item.image}`
+                    : '/fallback.jpg'
+                }
                 alt={item.title}
                 className="w-full h-40 object-cover "
                 width={500}
@@ -65,8 +71,14 @@ const Sports = async () => {
               <p className="text-sm text-gray-600 mt-1 line-clamp-2 ">
                 {item.description}
               </p>
-              <p className="text-xs text-gray-500 mt-1">
-                Publish at : {item.publish}
+              <p className="text-sm text-gray-500 mt-1">
+                প্রকাশ:{' '}
+                {new Date(item.publish).toLocaleDateString('bn-BD', {
+                  weekday: 'long', // রোববার
+                  year: 'numeric', // ২০২৫
+                  month: 'long', // আগস্ট
+                  day: 'numeric', // ৩১
+                })}
               </p>
             </div>
           ))}
@@ -76,7 +88,7 @@ const Sports = async () => {
       <div className="space-y-8">
         <div>
           <div className="flex items-center mb-4">
-            <h2 className="text-lg font-bold mr-4"> LIFESTYLE</h2>
+            <h2 className="text-lg font-bold mr-4"> লাইফস্টাইল </h2>
             <div className="flex flex-col  flex-grow gap-[2px] mt-1">
               <div className="border-t border-dotted border-black w-full h-0"></div>
               <div className="border-t border-dotted border-black w-full h-0"></div>
@@ -97,7 +109,7 @@ const Sports = async () => {
 
         <div>
           <div className="flex items-center mb-4">
-            <h2 className="text-lg font-bold mr-4">ENTERTAINMENT</h2>
+            <h2 className="text-lg font-bold mr-4">বিনোদন</h2>
             <div className="flex flex-col  flex-grow gap-[2px] mt-1">
               <div className="border-t border-dotted border-black w-full h-0"></div>
               <div className="border-t border-dotted border-black w-full h-0"></div>

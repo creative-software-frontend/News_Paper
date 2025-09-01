@@ -2,8 +2,7 @@
 
 import '../globals.css';
 import Sidebar from '../components/Admin/Sidebar/Sidebar';
-import AdminNavbar from '../components/Admin/Navbars/AdminNavbar';
-import HeaderStats from '../components/Admin/Headers/HeaderStats';
+
 import FooterAdmin from '../components/Admin/Footers/FooterAdmin';
 
 // TanStack Query imports
@@ -11,6 +10,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
+import PrivateRoute from '../components/PrivateRoute';
 
 const uiSans = {
   variable: '--font-ui-sans',
@@ -24,18 +24,16 @@ export default function AdminLayout({ children }) {
     <html lang="en" className={`${uiSans.variable}`}>
       <body>
         <QueryClientProvider client={queryClient}>
-          <Sidebar />
-          <div className="relative md:ml-64 bg-blueGray-100">
-            <AdminNavbar />
-            {/* Header */}
-            <HeaderStats />
+          <PrivateRoute>
+            <Sidebar />
+            <div className="relative md:ml-64 bg-blueGray-100">
+              <div className="px-2 sm:px-10 mx-auto w-full min-h-[calc(100vh-300px)]">
+                {children}
+              </div>
 
-            <div className="px-4 md:px-10 mx-auto w-full min-h-[calc(100vh-300px)]">
-              {children}{' '}
+              <FooterAdmin />
             </div>
-
-            <FooterAdmin />
-          </div>
+          </PrivateRoute>
 
           {/* Toast container */}
           <ToastContainer

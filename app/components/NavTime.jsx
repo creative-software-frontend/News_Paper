@@ -92,7 +92,7 @@ const NavTime = () => {
   }, []);
 
   return (
-    <div className=" sm:text-2xl ml-2">
+    <div className=" ml-2">
       <span>আজ {time.gregorian}</span> <span className="sm:hidden"></span> |{' '}
       <span>{time.bangla} বঙ্গাব্দ</span>
     </div>

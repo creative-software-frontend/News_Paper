@@ -1,56 +1,59 @@
+import { getNews } from '../lib/getNews';
 import NewsTabs from './NeswTab';
 import NewsCard from './NewsCard';
 import Slider from './Slider';
 
-const NewsSection = () => {
-  const politicsNews = [
-    {
-      title: 'Oil Prices Rise Amid Anticipated Cold Weather',
-      date: 'September 12, 2022',
-    },
-    {
-      title: 'Next Stop for Democrats',
-      date: 'June 15, 2022',
-    },
-    {
-      title: 'Anti-War Protests Intensify in the World',
-      date: 'April 22, 2022',
-    },
-    {
-      title: 'How to Spend the Perfect Day on Croatia',
-      date: 'April 21, 2022',
-    },
-  ];
+const NewsSection = async () => {
+  const politicsNews = await getNews('রাজনীতি');
 
-  const hollywoodNews = [
-    {
-      title: 'Olivia Rodrigo lead American Music Award nominees',
-      date: 'June 16, 2022',
-    },
-    {
-      title: 'The Most Romantic Small Towns in Europe',
-      date: 'June 15, 2022',
-    },
-    {
-      title: 'Glastonbury Festival fashion history',
-      date: 'May 18, 2022',
-    },
-    {
-      title: 'Movies on TV this week: ‘Goldfinger’ on BBC',
-      date: 'May 18, 2022',
-    },
-    {
-      title: 'BTS Discusses Anti-Asian Hate at White House',
-      date: 'April 29, 2022',
-    },
-  ];
+  // const politicsNews = [
+  //   {
+  //     title: 'Oil Prices Rise Amid Anticipated Cold Weather',
+  //     date: 'September 12, 2022',
+  //   },
+  //   {
+  //     title: 'Next Stop for Democrats',
+  //     date: 'June 15, 2022',
+  //   },
+  //   {
+  //     title: 'Anti-War Protests Intensify in the World',
+  //     date: 'April 22, 2022',
+  //   },
+  //   {
+  //     title: 'How to Spend the Perfect Day on Croatia',
+  //     date: 'April 21, 2022',
+  //   },
+  // ];
+
+  // const hollywoodNews = [
+  //   {
+  //     title: 'Olivia Rodrigo lead American Music Award nominees',
+  //     date: 'June 16, 2022',
+  //   },
+  //   {
+  //     title: 'The Most Romantic Small Towns in Europe',
+  //     date: 'June 15, 2022',
+  //   },
+  //   {
+  //     title: 'Glastonbury Festival fashion history',
+  //     date: 'May 18, 2022',
+  //   },
+  //   {
+  //     title: 'Movies on TV this week: ‘Goldfinger’ on BBC',
+  //     date: 'May 18, 2022',
+  //   },
+  //   {
+  //     title: 'BTS Discusses Anti-Asian Hate at White House',
+  //     date: 'April 29, 2022',
+  //   },
+  // ];
 
   return (
     <div className=" pb-5 grid grid-cols-1 md:grid-cols-4 gap-6">
       {/* HOT STORIES */}
       <div className=" md:col-span-2 ">
         <div className="flex items-center mb-4">
-          <h2 className="text-lg font-bold mr-4"> HOT STORIES</h2>
+          <h2 className="text-lg font-bold mr-4">সর্বশেষ সংবাদ</h2>
           <div className="flex flex-col  flex-grow gap-[2px] mt-1">
             <div className="border-t border-dotted border-black w-full h-0"></div>
             <div className="border-t border-dotted border-black w-full h-0"></div>
@@ -63,14 +66,14 @@ const NewsSection = () => {
       {/* POLITICS */}
       <div className=" md:col-span-1">
         <div className="flex items-center mb-4">
-          <h2 className="text-lg font-bold mr-4">POLITICS</h2>
+          <h2 className="text-lg font-bold mr-4">রাজনীতি</h2>
           <div className="flex flex-col  flex-grow gap-[2px] mt-1">
             <div className="border-t border-dotted border-black w-full h-0"></div>
             <div className="border-t border-dotted border-black w-full h-0"></div>
             <div className="border-t border-dotted border-black w-full h-0"></div>
           </div>
         </div>
-        {politicsNews.map((item, index) => (
+        {politicsNews?.slice(0, 5).map((item, index) => (
           <NewsCard key={index} {...item} />
         ))}
       </div>

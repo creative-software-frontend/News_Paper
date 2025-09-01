@@ -1,6 +1,8 @@
 // app/layout.js
+import { ToastContainer } from 'react-toastify';
 import NavItems from '../components/Navbar';
 import '../globals.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const metadata = {
   title: 'My News App',
@@ -13,6 +15,17 @@ export default function RootLayout({ children }) {
       <body>
         <NavItems></NavItems>
         {children}
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </body>
     </html>
   );

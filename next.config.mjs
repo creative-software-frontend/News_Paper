@@ -6,6 +6,9 @@ const nextConfig = {
       'encrypted-tbn0.gstatic.com',
       'www.metal-am.com',
       'sportsauthority.gov.gh',
+      'localhost',
+      'i.pravatar.cc',
+      'picsum.photos',
     ],
   },
 };

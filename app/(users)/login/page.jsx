@@ -1,8 +1,13 @@
 'use client';
 
+import axios from 'axios';
 import React, { useState } from 'react';
+import Cookies from 'js-cookie';
+import { useRouter } from 'next/navigation';
+import { toast } from 'react-toastify';
 
 const LoginPage = () => {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -13,15 +18,30 @@ const LoginPage = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
-    // এখানে তুমি API call করতে পারো
-    console.log('Login data:', formData);
-    alert(`Logging in with ${formData.email}`);
+    try {
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_ROOT_URL}/login`,
+        formData
+      );
+      if (response?.data?.message === 'Login successful') {
+        Cookies.set('token', response.data.token, {
+          expires: 1,
+          sameSite: 'Strict',
+        });
+        toast.success('Login successful');
+        router.push('/');
+      }
+    } catch (err) {
+      if (err.status == 401) {
+        toast.error('Invalid Cardinal');
+      }
+    }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
+    <div className="min-h-screen flex items-center justify-center p-4">
       <div className="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md border border-gray-100">
         <div className="text-center mb-8">
           <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 mb-4">

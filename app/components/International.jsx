@@ -1,48 +1,20 @@
 import Image from 'next/image';
 import { getNews } from '../lib/getNews';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+import utc from 'dayjs/plugin/utc';
+import timezone from 'dayjs/plugin/timezone';
 
-const businessArticles = [
-  {
-    title: 'Movies on TV this week: ‘Goldfinger’ on BBC',
-    excerpt:
-      'More off this less hello salamander lied porpoise much over tightly circa horse...',
-    author: 'codemin',
-    date: 'May 18, 2022',
-    img: '/img/BusinessSection (1).jpg',
-  },
-  {
-    title: '11 Inspiring Books to Add to Your Reading List',
-    excerpt:
-      'Lorem ipsum was conceived as filler text, formatted in a certain way...',
-    author: 'codemin',
-    date: 'April 22, 2022',
-    img: '/img/BusinessSection (2).jpg',
-  },
-  {
-    title: 'Laws Make College Transfer Easier for Community College Students',
-    excerpt:
-      'Lorem ipsum was conceived as filler text, formatted in a certain way...',
-    author: 'codemin',
-    date: 'April 22, 2022',
-    img: '/img/BusinessSection (3).jpg',
-  },
-  {
-    title: 'Laws Make College Transfer Easier for Community College Students',
-    excerpt:
-      'Lorem ipsum was conceived as filler text, formatted in a certain way...',
-    author: 'codemin',
-    date: 'April 22, 2022',
-    img: '/img/travel.jpg',
-  },
-];
-
+dayjs.extend(relativeTime);
+dayjs.extend(utc);
+dayjs.extend(timezone);
 const International = async () => {
   const InternationalNews = await getNews('আন্তর্জাতিক');
 
   return (
     <section className="my-10">
       <div className="flex items-center mb-4">
-        <h2 className="text-lg font-bold mr-4 uppercase">International</h2>
+        <h2 className="text-lg font-bold mr-4 uppercase">আন্তর্জাতিক</h2>
         <div className="flex flex-col  flex-grow gap-[2px] mt-1">
           <div className="border-t border-dotted border-black w-full h-0"></div>
           <div className="border-t border-dotted border-black w-full h-0"></div>
@@ -53,7 +25,13 @@ const International = async () => {
         {InternationalNews.slice(0, 4).map((article, idx) => (
           <div key={idx}>
             <Image
-              src={article.image}
+              src={
+                article?.image?.startsWith('http')
+                  ? article.image
+                  : article?.image
+                  ? `${process.env.NEXT_PUBLIC_ROOT_URL}${article.image}`
+                  : '/fallback.jpg'
+              }
               alt={article.title}
               className="w-full h-64 object-cover "
               width={500}
@@ -65,8 +43,14 @@ const International = async () => {
             <p className="text-sm text-gray-600 mt-1 line-clamp-2">
               {article.description}
             </p>
-            <p className="text-xs text-gray-500 mt-1">
-              Publish at : {article.publish}
+            <p className="text-sm text-gray-500 mt-1">
+              প্রকাশ:{' '}
+              {new Date(article.publish).toLocaleDateString('bn-BD', {
+                weekday: 'long', // রোববার
+                year: 'numeric', // ২০২৫
+                month: 'long', // আগস্ট
+                day: 'numeric', // ৩১
+              })}
             </p>
           </div>
         ))}

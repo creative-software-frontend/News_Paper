@@ -9,12 +9,11 @@ import NotificationDropdown from '../Dropdowns/NotificationDropdown';
 import UserDropdown from '../Dropdowns/UserDropdown';
 import { AiOutlineDesktop } from 'react-icons/ai';
 import { FaAddressCard, FaUserFriends } from 'react-icons/fa';
+import { IoSettingsOutline } from 'react-icons/io5';
 
 export default function Sidebar() {
   const [collapseShow, setCollapseShow] = React.useState('hidden');
   const pathname = usePathname();
-
-  console.log(pathname);
 
   return (
     <>
@@ -37,9 +36,29 @@ export default function Sidebar() {
             {/* Brand Logo */}
             <Link
               href="/"
-              className="text-2xl font-bold text-gray-800 hover:text-blue-600 transition-colors"
+              className="flex items-center space-x-2 text-gray-800 hover:text-blue-600 transition-colors"
             >
-              <span className="text-blue-600">Daily</span> News
+              <div className="bg-blue-600 text-white p-2 rounded-lg">
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
+                  />
+                </svg>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-xl font-bold">Daily News</span>
+                <span className="text-xs text-gray-500 font-medium">
+                  Admin Panel
+                </span>
+              </div>
             </Link>
 
             {/* Spacer for alignment (hidden on mobile) */}
@@ -88,13 +107,13 @@ export default function Sidebar() {
               <Link href={'/admin/dashboard'}>
                 <button
                   className={`
-      w-full text-left flex items-center gap-3 px-4 py-3 rounded-lg transition-all
-      ${
-        pathname === '/admin/dashboard'
-          ? 'bg-sky-100 text-sky-600 font-medium shadow-sm'
-          : 'text-gray-600 hover:bg-gray-100 hover:text-gray-800'
-      }
-    `}
+                          w-full text-left flex items-center gap-3 px-4 py-3 rounded-lg transition-all
+                          ${
+                            pathname === '/admin/dashboard'
+                              ? 'bg-sky-100 text-sky-600 font-medium shadow-sm'
+                              : 'text-gray-600 hover:bg-gray-100 hover:text-gray-800'
+                          }
+                        `}
                 >
                   <AiOutlineDesktop
                     size={20}
@@ -108,39 +127,16 @@ export default function Sidebar() {
                 </button>
               </Link>
 
-              <Link href={'/admin/add-news'}>
-                <button
-                  className={`
-      w-full text-left flex items-center gap-3 px-4 py-3 rounded-lg transition-all
-      ${
-        pathname === '/admin/add-news'
-          ? 'bg-sky-100 text-sky-600 font-medium shadow-sm'
-          : 'text-gray-600 hover:bg-gray-100 hover:text-gray-800'
-      }
-    `}
-                >
-                  <MdLibraryAdd
-                    size={20}
-                    className={
-                      pathname === '/admin/add-news'
-                        ? 'text-sky-500'
-                        : 'text-gray-500'
-                    }
-                  />
-                  <span className="text-sm">Add News</span>
-                </button>
-              </Link>
-
               <Link href={'/admin/my-news'}>
                 <button
                   className={`
-      w-full text-left flex items-center gap-3 px-4 py-3 rounded-lg transition-all
-      ${
-        pathname === '/admin/my-news'
-          ? 'bg-sky-100 text-sky-600 font-medium shadow-sm'
-          : 'text-gray-600 hover:bg-gray-100 hover:text-gray-800'
-      }
-    `}
+                        w-full text-left flex items-center gap-3 px-4 py-3 rounded-lg transition-all
+                        ${
+                          pathname === '/admin/my-news'
+                            ? 'bg-sky-100 text-sky-600 font-medium shadow-sm'
+                            : 'text-gray-600 hover:bg-gray-100 hover:text-gray-800'
+                        }
+                      `}
                 >
                   <FaAddressCard
                     size={20}
@@ -157,13 +153,13 @@ export default function Sidebar() {
               <Link href={'/admin/users'}>
                 <button
                   className={`
-      w-full text-left flex items-center gap-3 px-4 py-3 rounded-lg transition-all
-      ${
-        pathname === '/admin/users'
-          ? 'bg-sky-100 text-sky-600 font-medium shadow-sm'
-          : 'text-gray-600 hover:bg-gray-100 hover:text-gray-800'
-      }
-    `}
+                                w-full text-left flex items-center gap-3 px-4 py-3 rounded-lg transition-all
+                                ${
+                                  pathname === '/admin/users'
+                                    ? 'bg-sky-100 text-sky-600 font-medium shadow-sm'
+                                    : 'text-gray-600 hover:bg-gray-100 hover:text-gray-800'
+                                }
+                              `}
                 >
                   <FaUserFriends
                     size={20}
@@ -174,6 +170,50 @@ export default function Sidebar() {
                     }
                   />
                   <span className="text-sm">Users</span>
+                </button>
+              </Link>
+              <Link href={'/admin/category'}>
+                <button
+                  className={`
+                             w-full text-left flex items-center gap-3 px-4 py-3 rounded-lg transition-all
+                                     ${
+                                       pathname === '/admin/category'
+                                         ? 'bg-sky-100 text-sky-600 font-medium shadow-sm'
+                                         : 'text-gray-600 hover:bg-gray-100 hover:text-gray-800'
+                                     }
+                           `}
+                >
+                  <MdLibraryAdd
+                    size={20}
+                    className={
+                      pathname === '/admin/category'
+                        ? 'text-sky-500'
+                        : 'text-gray-500'
+                    }
+                  />
+                  <span className="text-sm">Add Category</span>
+                </button>
+              </Link>
+              <Link href={'/admin/setting'}>
+                <button
+                  className={`
+                             w-full text-left flex items-center gap-3 px-4 py-3 rounded-lg transition-all
+                                     ${
+                                       pathname === '/admin/setting'
+                                         ? 'bg-sky-100 text-sky-600 font-medium shadow-sm'
+                                         : 'text-gray-600 hover:bg-gray-100 hover:text-gray-800'
+                                     }
+                           `}
+                >
+                  <IoSettingsOutline
+                    size={20}
+                    className={
+                      pathname === '/admin/setting'
+                        ? 'text-sky-500'
+                        : 'text-gray-500'
+                    }
+                  />
+                  <span className="text-sm">Setting</span>
                 </button>
               </Link>
             </div>
